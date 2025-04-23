@@ -1,0 +1,127 @@
+.header {
+    background: #222;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    color: #0f0;
+    font-size: 24px;
+  }
+  
+  .header nav a {
+    color: #aaa;
+    margin-left: 20px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  .header nav a:hover {
+    color: #fff;
+  }
+  
+  /* Main Section */
+  .main {
+    padding: 20px;
+    flex: 1;
+  }
+  
+  .main h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .main h5 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: wheat;
+  }
+  
+  .forms {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  
+  /* Form Cards */
+  .form-card {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .form-card h3 {
+    margin-bottom: 15px;
+    color: #0f0;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #333;
+    color: #eee;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .create-btn {
+    background: #0f0;
+    color: #111;
+  }
+  
+  .create-btn:hover {
+    background: #0a0;
+  }
+  
+  .join-btn {
+    background: #00f;
+    color: #fff;
+  }
+  
+  .join-btn:hover {
+    background: #005;
+  }
+  
+  /* Public Rooms Section */
+  .public-rooms {
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .public-rooms h3 {
+    margin-bottom: 15px;
+    color: #0f0;
+  }
+  
+  .public-rooms p {
+    text-align: center;
+    color: #aaa;
+  }
+  
+  .public-rooms ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .public-rooms li {
+    background: #333;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #eee;
+  }

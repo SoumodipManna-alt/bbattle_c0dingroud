@@ -1,0 +1,2 @@
+npm install socket.io socket.io-client
+pip install fastapi uvicorn python-socketio
