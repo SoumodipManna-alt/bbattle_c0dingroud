@@ -1,23 +1,23 @@
-/* Neon Theme Room Styling */
 .body-c {
   background: linear-gradient(to right, #000428, #004e92);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
   color: #ccffcc;
   margin: 0;
   padding: 0;
+  height: 100vh;
 }
 
-h2 {
-  color: #00ff00;
+.body-c h2 {
+  color: #a2f8a2;
   margin-left: 20px;
 }
 
-h3 {
+.body-c h3 {
   color: #ffffff;
   margin-left: 20px;
 }
 
- .send-button{
+.send-button {
   padding: 10px 15px;
   margin: 10px;
   border: none;
@@ -26,8 +26,20 @@ h3 {
   cursor: pointer;
   width: 100px;
   height: 40px;
+  background-color: #2394d0;
 }
-button{
+.send-button:hover{
+  background-color: #4f67ec;
+}
+.room-container .panel .chat-input {
+  padding: 10px;
+  margin: 10px;
+  border-radius: 6px;
+  border: none;
+  width: 70%;
+}
+
+.btn {
   padding: 10px 15px;
   margin: 10px;
   border: none;
@@ -37,20 +49,12 @@ button{
   width: 180px;
   height: 60px;
 }
-button:hover {
+
+.btn:hover {
   opacity: 0.9;
 }
 
-input {
-  padding: 10px;
-  margin: 10px;
-  border-radius: 6px;
-  border: none;
-  width: 70%;
-}
-
-/* Chat Box & Message Styling */
-ul {
+ul.participants {
   list-style: none;
   padding: 0 20px;
 }
@@ -73,13 +77,13 @@ ul {
 
 .panel {
   background: #001f1f;
-  border: 2px solid #00ff00;
-  box-shadow: 0 0 15px #00ff00;
+  border: 2px solid #93ed93;
+  box-shadow: 0 0 15px #a0efa0;
   border-radius: 10px;
   padding: 20px;
 }
 
-/* Participants */
+/* Participants section */
 .participants {
   background-color: #000;
   padding: 10px;
@@ -87,7 +91,7 @@ ul {
 }
 
 .participants h3 {
-  color: #0f0;
+  color: rgb(167, 245, 167);
   margin-bottom: 10px;
 }
 
@@ -108,8 +112,8 @@ ul {
 }
 
 .start-btn {
-  background: #007f00;
-  color: #fff;
+  background: #2de4ad;
+  color:#000;
 }
 
 .close-btn {

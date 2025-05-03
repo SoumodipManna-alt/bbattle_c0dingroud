@@ -1,0 +1,116 @@
+/* Main container */
+.leaderboard-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  /* Heading */
+  .leaderboard-heading {
+    font-size: 26px;
+    color: #00ffc8;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Message */
+  .message {
+    font-size: 16px;
+    color: red;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Input & Button Section */
+  .input-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .input-section input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #2d2d3a;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .input-section input::placeholder {
+    color: #aaa;
+  }
+  
+  .btn {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #3b7dc4;
+  }
+  
+  /* User position highlight */
+  .user-position {
+    color: #00ff00;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Table */
+  .result-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  .result-table th,
+  .result-table td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  .result-table th {
+    background-color: #2e2e3d;
+    color: #00ffc8;
+  }
+  
+  .result-table tbody tr:nth-child(even) {
+    background-color: #292940;
+  }
+  
+  .result-table tbody tr:hover {
+    background-color: #3a3a50;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    width: 60%;
+    height: 300px;
+    margin: 40px auto 20px auto;
+    background-color: #2d2d3a;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .chart-container h3 {
+    color: #00ffc8;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  

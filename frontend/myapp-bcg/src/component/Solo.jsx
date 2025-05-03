@@ -2,6 +2,7 @@ import React ,{useEffect, useState} from 'react'
 import { data } from 'react-router-dom'
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import './Styles/Solo.css'
 const Solo = () => {
   const[username,setusername]=useState(localStorage.getItem("username"))
   const[room_id,setroom_id]=useState((Math.random().toString(36).substring(2,7)))
@@ -20,11 +21,11 @@ const Solo = () => {
   const [toggle,settoggle]=useState(false)
   
   useEffect(()=>{
-    
+    const question_ids = Math.floor(Math.random() * 4) + 1;
     fetch("http://127.0.0.1:5000/question_genarate",{
       method:"POST",
       headers:{"Content-Type": "application/json"},
-      body:JSON.stringify({room_id})
+      body:JSON.stringify({room_id,question_ids})
     })
     .then(res=>res.json()) 
     .then((data)=>{
@@ -81,9 +82,9 @@ const code_submit =()=>{
     // if()
     if(!data.success){
       setresult("")
-    setcolor("red")
+    // setcolor("red")
     seterror(data.error)
-    setcompilation_status("😟 Compilation Unsuccessful ❌")
+    // setcompilation_status("😟 Compilation Unsuccessful ❌")
     }
     settest_result(data)
   })
@@ -91,29 +92,35 @@ const code_submit =()=>{
 if(!toggle){
 return(
  
-  <div>
+  <div className="solo-start-screen">
     <h1>Hi {username}</h1>
-    <h1>Are you ready to start practice </h1>
-    <button onClick={()=>{settoggle(true)}}>Start</button>
-    <button onClick={()=>{navigate('/')}}>Back</button>
+    <h2>Are you ready to start practice </h2>
+    <button onClick={()=>{settoggle(true)}} className="solo-start">Start</button>
+    <button onClick={()=>{navigate('/')}} className="solo-back">Back</button>
   </div>
 )
 }
 return (toggle&&
-    <div className='hi'>
-    
-      <h2>Question :{question}</h2>
+    <div className='solo-container'>
+      <div className="question-section">
+
+      <h2>Question :</h2>
+      <p>{question}</p>
+      </div>
+      <div className="testcase-section">
       <h2>Testcases</h2>
      {
       Object.entries(testcase).map(([input,output],index)=>(
         <p key={index}>{index+1}) input  : {input}  ::  Output  :  {output}</p>
       ))
      }
+     </div>
      <textarea 
        rows="10"
         cols="60"
       placeholder='Enter your Code here'
       onChange={(e)=>{setcode(e.target.value)}}
+      onPaste={(e) => e.preventDefault()}
       />
 <br/>
     <textarea 
@@ -123,8 +130,9 @@ return (toggle&&
       onChange={(e)=>{setinput(e.target.value)}}
       />
       <br></br>
-      <button onClick={code_run}>Run⌛</button>
-      <button onClick={code_submit}>Submit🎯</button>
+      <button onClick={code_run} className="solo-btn">Run⌛</button>
+      <button onClick={code_submit} className="solo-btnn">Submit🎯</button>
+      <div className="result-section">
       <h3>
         Compilation Message:
         <pre style={{color:color}}>{compilation_status}</pre>
@@ -145,6 +153,7 @@ return (toggle&&
           <p key={index}>Testcase no : {+no+1}) {re?"✅":"❌"} </p>
         ))
       }
+      </div>
     </div>
   )
 }

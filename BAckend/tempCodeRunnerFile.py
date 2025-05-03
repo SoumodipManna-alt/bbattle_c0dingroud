@@ -1,11 +1,12 @@
-# data={"question":"xbcv","testcases":{
-# #             "testcase1":{"input1":4,"output1":True},
-# #             "testcase2":{"input2":5,"output2":False},
-# #             "testcase3":{"input3":0,"output3":True},
-# #             },
-# #         "question_time":30
-# #         }
-# # # print(data["testcases"].items())
+n=int(input())
 
-# # for key,value in data["testcases"].values():
-# #     print(key,value)
+m=n
+s=0
+d=1
+while(n!=0):
+    r=n%10
+    s=s*10+r
+    
+    n=n//10
+    
+print(s)

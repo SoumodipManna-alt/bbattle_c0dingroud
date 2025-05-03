@@ -18,7 +18,7 @@ def user_details(email):
         "Email":result[2],
         
     }
-    qury2='''SELECT room_id,position FROM result WHERE user_email =?  and game_round=?'''
+    qury2='''SELECT TOP 5  room_id,position FROM result WHERE user_email =?  and game_round=? ORDER BY id DESC'''
     cursor.execute(qury2,(result[2],1))
     result2=cursor.fetchall()
     result2=[list(num) for num in result2]

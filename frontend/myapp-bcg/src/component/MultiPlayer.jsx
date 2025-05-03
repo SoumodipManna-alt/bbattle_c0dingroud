@@ -31,7 +31,7 @@ useEffect(()=>{
     localStorage.setItem("Game_round",data.round)
   }
   socket.on("room_created",room_created_fun)
-  socket.on("join_room",join_room_fun)
+  socket.on("join_room_c",join_room_fun)
   socket.on("error",handel_error)
   return ()=>{
     socket.off("room_created",room_created_fun)//clean up
@@ -65,18 +65,68 @@ function joinroom(e){
   navigate(`/room/${roomid}?username=${encodeURIComponent(username)}`);
 }
   return (
-   <div className="room-page">
-     <h1>Debug & Dominate</h1>
-    <div className='main' >
+//    <div classNameName="room-page">
+//      <h1>Debug & Dominate</h1>
+//     <div classNameName='main' >
      
-      <h5>multiplayer mode</h5>
-      <h5>Real-Time Programming Battles</h5>
-    <div className='forms'>
-        <div className='form-card'> 
+//       <h5>multiplayer mode</h5>
+//       <h5>Real-Time Programming Battles</h5>
+//     <div classNameName='forms'>
+//         <div classNameName='form-card'> 
+//         <h3>Create Room</h3>
+//       <input type="text"  placeholder="Enter your name" value={username}  onChange={(e)=>setusername(e.target.value)} required/>
+//       <div classNameName="dropdowns">
+//              <select
+                    //className="form-select"
+//                 value={roomType}
+//                 onChange={(e) => setRoomType(e.target.value)}
+//               >
+//                 <option value="" disabled>
+//                   Select language
+//                 </option>
+//                 <option value="Java">Python</option>
+//                 <option value="Python" disabled>Java</option>
+//                 <option value="Ruby" disabled>Ruby</option>
+//               </select>
+//               <input
+//                 className="form-round-input"
+//                 type="text"
+//                 value={round}
+//                 onChange={(e) => setRound(e.target.value)}
+//                 placeholder="Enter how many round"
+//               />
+//             </div>
+//       <button classNameName="create-btn" onClick={createroom}>+Create Room</button>
+//       </div>   
+   
+
+//       <div classNameName='form-card'> 
+//       <input type='text' placeholder="Enter your room id" value={roomid}  onChange={(e)=>setroomid(e.target.value)} required/>
+//       <button classNameName="join-btn" onClick={joinroom}>→ Join Room</button>
+//       </div> 
+//     </div>
+//   </div>
+// </div> 
+<div className="room-page">
+  <div className="header">
+    <h1 className="header-title">Debug & Dominate</h1>
+
+  </div>
+
+  <div className="main">
+    
+    <h2 className="subheading">Multiplayer Mode</h2>
+    <h3 className="subheading">Real-Time Programming Battles</h3>
+
+    <div className="forms">
+   
+      <div className="form-card">
         <h3>Create Room</h3>
-      <input type="text"  placeholder="Enter your name" value={username}  onChange={(e)=>setusername(e.target.value)} required/>
-      <div className="dropdowns">
-             <select
+        <input className="form-input" type="text"  placeholder="Enter your name" value={username}  onChange={(e)=>setusername(e.target.value)} required />
+
+        <div className="dropdowns">
+        <select
+                    className="form-select"
                 value={roomType}
                 onChange={(e) => setRoomType(e.target.value)}
               >
@@ -87,29 +137,35 @@ function joinroom(e){
                 <option value="Python" disabled>Java</option>
                 <option value="Ruby" disabled>Ruby</option>
               </select>
+
               <input
+                className="form-round-input"
                 type="text"
                 value={round}
                 onChange={(e) => setRound(e.target.value)}
                 placeholder="Enter how many round"
               />
-            </div>
-      <button className="create-btn" onClick={createroom}>+Create Room</button>
-      </div>   
-   
+        </div>
 
-      <div className='form-card'> 
-      <input type='text' placeholder="Enter your room id" value={roomid}  onChange={(e)=>setroomid(e.target.value)} required/>
-      <button className="join-btn" onClick={joinroom}>→ Join Room</button>
-      </div> 
+        <button className="create-btn" onClick={createroom}>+Create Room</button>
+      </div>
+
+     
+      <div className="form-card">
+        <input
+          className="form-input"
+          type='text' placeholder="Enter your room id" value={roomid}  onChange={(e)=>setroomid(e.target.value)} required
+        />
+         <button className="join-btn" onClick={joinroom}>→ Join Room</button>
+      </div>
     </div>
   </div>
-</div> 
+</div>
+
   )
 }
 
 export default Multiplayer
-
 // why Math.random().toString(36).substring(2,7)
 // is used to generate a random 5-character alphanumeric string. Let’s break it down:
 

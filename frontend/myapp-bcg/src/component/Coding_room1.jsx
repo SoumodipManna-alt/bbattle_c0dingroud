@@ -1,6 +1,7 @@
 import React ,{useEffect, useState} from 'react'
 import axios from "axios"
 import { data, useLocation,useNavigate } from 'react-router-dom'
+import './Styles/Coding_room1.css';
 
 
 const Coding_room1 = () => {
@@ -8,7 +9,7 @@ const Coding_room1 = () => {
     const username=query.get("username")
     const room_id=query.get("room_id")
     const question_ids=query.get("question_ids")
-    console.log(question_ids);
+    // console.log(question_ids);
     
     const [user_email,setuser_email]=useState(localStorage.getItem("useremail"))
     const navigate=useNavigate()
@@ -86,8 +87,8 @@ const Submit = ()=>{
     .then((res)=>res.json())
     .then((data)=>{
         alert("Submit success fully ",data.message)
-        console.log("message",data.message);
-        console.log(data);
+        // console.log("message",data.message);
+        // console.log(data);
         
         if(data.message){
             alert("all round finished")
@@ -174,67 +175,125 @@ catch{
 
     }
   return (
-    
-        <div style={{ textAlign: "center", padding: "20px" }}  class="container">
-        <h1>Welcome, {username}! Your game has started 🎮</h1>
-        <h2>timer {timeLeft}sec</h2>
-        <h2>Question: {question}</h2>
+//     <div className='body-co '>
+//         <div style={{ textAlign: "center", padding: "20px" }}  class="container">
+//         <h1>Welcome, {username}! Your game has started 🎮</h1>
+//         <h2>timer {timeLeft}sec</h2>
+//         <h2>Question: {question}</h2>
 
-    <h1>question_ids{question_ids}</h1>
+//     <h1>question_ids{question_ids}</h1>
 
-<h3>Test Cases:</h3>
-<ul>
-  {Object.entries(Testcases).slice(0, 2).map(([input,output],index) => (
-    <li key={index}>
-      <strong>Test {index+1} :-</strong> Input : {input} :: Output : {output}
-    </li>
-  ))}
-</ul>
-<div className="ide">
-      <textarea 
-       rows="10"
-        cols="60"
-      placeholder='Enter your Code here'
-      onChange={(e)=>{setcode(e.target.value)}}
-      />
-<br/>
-    <textarea 
-       rows="5"
-        cols="60"
-      placeholder='Enter your input  here'
-      onChange={(e)=>{setinput(e.target.value)}}
-      />
-      <br/>
-      <div className="buttons"  >
-      <button  className="btn compile" onClick={code_run}>Run⌛</button>
-      <button className="btn run" onClick={Submit}>Submit🎯</button>
-      <button onClick={test_case_result}>Testcases</button>
-      </div>
-      </div>
-      <div className='output'>
-      <h3>
-        Compilation Message:
-        <pre style={{color:color}}>{compilation_status}</pre>
+// <h3>Test Cases:</h3>
+// <ul>
+//   {Object.entries(Testcases).slice(0, 2).map(([input,output],index) => (
+//     <li key={index}>
+//       <strong>Test {index+1} :-</strong> Input : {input} :: Output : {output}
+//     </li>
+//   ))}
+// </ul>
+// <div className="ide">
+//       <textarea 
+//        rows="10"
+//         cols="60"
+//       placeholder='Enter your Code here'
+//       onChange={(e)=>{setcode(e.target.value)}}
+//       />
+// <br/>
+//     <textarea 
+//        rows="5"
+//         cols="60"
+//       placeholder='Enter your input  here'
+//       onChange={(e)=>{setinput(e.target.value)}}
+//       />
+//       <br/>
+//       <div className="buttons"  >
+//       <button  className="btn-compile" onClick={code_run}>Run⌛</button>
+//       <button className="btn-run" onClick={Submit}>Submit🎯</button>
+      
+//       </div>
+//       </div>
+//       <div className='output'>
+//       <h3>
+//         Compilation Message:
+//         <pre style={{color:color}}>{compilation_status}</pre>
         
-      </h3>
-      <h3>
-        The output :
-        <pre style={{color:color}}>{result}</pre>
-      </h3>
-      <h3>
-        The Error :
-        <pre style={{color:color}}>{error}</pre>
-      </h3>
-      </div> 
-      {test_result &&(<div>
-      <h3>The test results are </h3>
-      {
-        Object.entries(test_result).map(([no,re],index)=>(
-          <p key={index}>Testcase no : {+no+1}) {re?"✅":"❌"} </p>
-        ))
-      }
-      </div>)}
-    </div>
+//       </h3>
+//       <h3>
+//         The output :
+//         <pre style={{color:color}}>{result}</pre>
+//       </h3>
+//       <h3>
+//         The Error :
+//         <pre style={{color:color}}>{error}</pre>
+//       </h3>
+//       </div> 
+//       {test_result &&(<div>
+//       <h3>The test results are </h3>
+//       {
+//         Object.entries(test_result).map(([no,re],index)=>(
+//           <p key={index}>Testcase no : {+no+1}) {re?"✅":"❌"} </p>
+//         ))
+//       }
+//       </div>)}
+//     </div>
+//     </div>
+
+<div id="coding-room-container">
+<h1 className="welcome-text">Welcome, {username}! Your game has started 🎮</h1>
+<h2 className="timer-text">Timer: {timeLeft} sec</h2>
+<h2 className="question-heading">Question:</h2>
+<p className="question-text">{question}</p>
+
+<h1 className="question-ids">Question ID: {question_ids}</h1>
+
+<div className="testcases">
+  <h3>Test Cases:</h3>
+  <ul>
+    {Object.entries(Testcases).slice(0, 2).map(([input, output], index) => (
+      <li key={index} className="testcase-item">
+        <strong>Test {index + 1}:</strong> Input: {input} :: Output: {output}
+      </li>
+    ))}
+  </ul>
+</div>
+
+<div className="ide">
+  <textarea
+    className="code-input"
+    rows="10"
+    cols="60"
+    placeholder="Enter your code here"
+    onChange={(e) => setcode(e.target.value)}
+    // onPaste={(e) => e.preventDefault()}
+  />
+  <br />
+  <textarea
+    className="input-field"
+    rows="5"
+    cols="60"
+    placeholder="Enter your input here"
+    onChange={(e) => setinput(e.target.value)}
+  />
+  <br />
+  <div className="buttons">
+    <button className="btn-compile" onClick={code_run}>Run ⌛</button>
+    <button className="btn-run" onClick={Submit}>Submit 🎯</button>
+  </div>
+</div>
+
+<div className="output">
+  <h3>Compilation Message:</h3>
+  <pre className="compilation-status">{compilation_status}</pre>
+
+  <h3>The Output:</h3>
+  <pre className="output-result">{result}</pre>
+
+  <h3>The Error:</h3>
+  <pre className="error-message">{error}</pre>
+</div>
+
+
+</div>
   )
 }
 

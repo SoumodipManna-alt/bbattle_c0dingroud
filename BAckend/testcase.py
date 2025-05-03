@@ -87,3 +87,49 @@ if(n==1):
     print("False")
 else:
     print("True") 
+    
+    
+    
+n=int(input())
+m=n
+s=0
+while(n!=0):
+    r=n%10
+    s=s*10+r
+    
+    n=n//10
+if(s==m):
+    print(True)
+else:
+    print(False)
+    
+
+
+
+
+n=int(input())
+m=n
+s=0
+while(n!=0):
+    r=n%10
+    s=s*10+r
+    
+    n=n//10
+    
+print(s)
+
+
+def is_prime(n):
+    if n <= 1:
+        return False  # 0 and 1 are not prime
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Example usage
+num = int(input())
+if is_prime(num):
+    print(True)
+else:
+    print(False)

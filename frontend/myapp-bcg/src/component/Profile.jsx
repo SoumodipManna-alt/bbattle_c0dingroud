@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
-
+import './Styles/Profile.css'
 const Profile = () => {
   const[email,setemail]=useState()
   const[data ,setdata]=useState({})
@@ -42,17 +42,20 @@ const Profile = () => {
   // }
  
   return (
-    <div className='form-card'>
-    <ul>
+    <div className='profile-container'>
+    <ul className="profile-info" >
     <li>ID : {data.ID}</li>
     <li>Name : {data.Name}</li>
     <li>Email : {data.Email}</li>
     </ul>
-    <button className='join-btn' onClick={()=>settoggle(!toggle)}>{toggle?"Hide History":"Show History"}</button>
+    <button className='toggle-history-btn' onClick={()=>settoggle(!toggle)}>{toggle?"Hide History":"Show History"}</button>
+    
     {
       toggle&&(
-        <table border="1" style={{ marginTop: "10px", width: "100%", textAlign: "center" }}>
+        
+        <table className="history-table">
           <thead>
+          
             <tr>
               <th>Room id</th>
               <th>Position</th>
@@ -74,7 +77,7 @@ const Profile = () => {
     }
 
 {toggle && history.length > 0 && (
-  <div style={{ width: "50%", height: 180, marginTop: "20px" }}>
+  <div className="performance-chart">
     <ResponsiveContainer>
       <LineChart data={chartData}>
         <CartesianGrid strokeDasharray="3 3" />

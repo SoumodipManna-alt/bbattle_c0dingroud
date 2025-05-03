@@ -12,7 +12,7 @@ import {
 import { LineChart, Line } from 'recharts';
 
 import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
-
+import './Styles/LeaderBoard.css'
 
 const LeaderBoard = () => {
   const [data, setData] = useState([]);
@@ -53,8 +53,8 @@ const LeaderBoard = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome {username} to Leaderboard</h1>
+    <div className="leaderboard-container">
+      <h1 className="leaderboard-heading">Welcome {username} to Leaderboard</h1>
     {
       toggle&&
       data.map((row)=>{
@@ -74,7 +74,7 @@ const LeaderBoard = () => {
       )
       
     }
-      <div className="mb-4">
+      <div className="input-section">
         <input 
           type="text" 
           placeholder="Enter room ID" 
@@ -91,15 +91,15 @@ const LeaderBoard = () => {
         />
         <button 
           onClick={fetching_result} 
-          className="btn run"        >
+          className="btn"        >
           Fetch Results
         </button>
       </div>
       
-      {message && <p className="mb-4 text-red-500" style={{color:"red"}}>{message}</p>}
+      {message && <p className="user-position" style={{color:"red"}}>{message}</p>}
       
       {data.length > 0 ? (
-        <table className="">
+        <table className="result-table">
           <thead>
             <tr className="bg-gray-200">
               
@@ -139,7 +139,7 @@ const LeaderBoard = () => {
       )}
       
       {data.length > 0 && (
-  <div style={{ width: "50%", height: 200, marginTop: "2rem" }}>
+  <div className='chart-container'>
     <h3>Performance Chart</h3>
     <ResponsiveContainer width="100%" height="100%">
       <BarChart data={chartData}>

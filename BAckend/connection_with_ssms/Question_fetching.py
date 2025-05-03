@@ -33,7 +33,7 @@ def question_fetch(q_id):
             "testcase2":{result[4]:result[5]},
             "testcase3":{result[6]:result[7]},
             },
-        "question_time":result[8]*30
+        "question_time":result[8]
         }
         input_output_pairs = {}
 

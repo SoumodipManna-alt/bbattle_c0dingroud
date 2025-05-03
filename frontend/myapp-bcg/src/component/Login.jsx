@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import './Styles/Login.css'
 const Login = () => {
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
@@ -75,31 +75,32 @@ if(!sign){
 
 
     return (
-        <div className=''>
+        <div className='auth-container'>
             <h1>Home (Login Page)</h1>
             
-            <form onSubmit={submit_function}>
-            <div className='form-card'>
+            <form onSubmit={submit_function} className="auth-form">
+            
                 <input type='email' placeholder='Enter your Email' required value={email} onChange={(e) => setemail(e.target.value)} />
                 <input type='password' placeholder='Enter password' required value={password} onChange={(e) => setpassword(e.target.value)} />
-                <button className="btn run" type='submit'>Log in</button>
-                </div>
-                <div className='form-card'>
-                <p style={{color:"black"}}>Not signed up yet?🧐</p>
-                <button className="btn run" onClick={() =>setsign(true) }>Sign up</button>
-                </div>
+                <button className="btn-login" type='submit'>Log in</button>
+               
+                <div className="switch-auth">
+  <p>Not signed up yet? 🧐</p>
+  <button className="auth-btn" type="button" onClick={() => setsign(true)}>Sign up</button>
+</div>
+
             </form>
             
         </div>
     )
 }
     return ( sign &&
-        <div>
-            <form onSubmit={sign_in_fun}>
+        <div className="auth-container">
+            <form onSubmit={sign_in_fun} className="auth-form">
                 <input type='text' placeholder='Enter name' value={name}  onChange={(e)=>{setname(e.target.value)}} required />
                 <input type='email' placeholder='Enter Email' value={email}  onChange={(e)=>{setemail(e.target.value)}} required/>
                 <input type='password' placeholder='Enter password' value={password} onChange={(e)=>setpassword(e.target.value)} required/>
-                <button className="btn run" type='submit'>Sign up </button>
+                <button className="auth-btn" type='submit'>Sign up </button>
             </form>
         </div>
       )

@@ -1,0 +1,85 @@
+.profile-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    min-height: 100vh;
+  }
+  
+  /* Profile info */
+  .profile-info {
+    background-color: #2d2d3a;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+  
+  .profile-info li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #00ffc8;
+  }
+  
+  /* Toggle button */
+  .toggle-history-btn {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-history-btn:hover {
+    background-color: #3b7dc4;
+  }
+  
+  /* History table */
+  .history-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    background-color: #2d2d3a;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .history-table th,
+  .history-table td {
+    padding: 12px;
+    border: 1px solid #444;
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .history-table th {
+    background-color: #2e2e3d;
+    color: #00ffc8;
+  }
+  
+  .history-table tr:nth-child(even) {
+    background-color: #292940;
+  }
+  
+  /* Chart container */
+  .performance-chart {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    margin: 40px auto 20px auto;
+    background-color: #2d2d3a;
+    border-radius: 12px;
+    padding: 20px;
+  }
+  
+  .performance-chart h3 {
+    color: #00ffc8;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  

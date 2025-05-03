@@ -74,7 +74,7 @@ def handel_join_room(data):
         rooms[room_id][request.sid]=username
     round=game_round[room_id]    
     join_room(room_id)
-    socketio.emit("join_room",{"round":round},room=room_id)
+    socketio.emit("join_room_c",{"round":round,"room_id":room_id},room=room_id)
     socketio.emit("room_update",{"room":room_id,"user":list(rooms[room_id].values())},room=room_id)
     # socketio.emit("message_history", {"messages": list(messages.get(room_id, {}).values())}, room=request.sid)
 
@@ -220,7 +220,7 @@ def question_genarate():
     room_id=data.get("room_id")
     question_ids=data.get("question_ids",1)
     random_number = 1 
-    data,input_output_pairs=Question_fetching.question_fetch(random_number)
+    data,input_output_pairs=Question_fetching.question_fetch(question_ids)
     if room_id not in testcases:
         testcases[room_id]=input_output_pairs
         # print(data["question"])
@@ -247,7 +247,7 @@ def code_submit():
     # if(len(list(rooms[room_id].values()))==len(list(submit_code[room_id].values()))):
     if len(submit_code[room_id][round])==len(rooms[room_id]):
         Test_cases.performance_check(room_id,round)
-        socketio.emit("all_user_submitted",room=room_id)
+        socketio.emit("all_user_submitted",{"room_id":room_id,"round":round},room=room_id)
     # else:
     #     socketio.emit("waiting_for_others",room=room_id)
     print("game round",game_round[room_id],"total round",current_round[room_id])
@@ -270,6 +270,8 @@ def result_showing():
     data=request.json
     room_id=data.get("room_id")
     round=data.get("round")
+    print("hi",room_id,round)
+
     result,status=fatching_result.result_fetch(room_id,round)
     if status==0:
         return jsonify({"result":result,"message":""})

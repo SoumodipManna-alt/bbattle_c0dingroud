@@ -1,13 +1,16 @@
 import React,{useEffect, useState} from 'react'
 import { data,useNavigate, useParams,useLocation } from 'react-router-dom'
-import {io} from "socket.io-client"
+import {io, Socket} from "socket.io-client"
 import "./Styles/Room.css"
 const socket =io("http://localhost:5000")
 const Room = () => {
   const {roomId}=useParams()
   const location = useLocation();
 const set_round = location.state?.round;
-localStorage.setItem("Game_round",set_round)
+if(set_round!=null){
+  localStorage.setItem("Game_round",set_round)
+
+}
   const query = new URLSearchParams(useLocation().search);
   const username = localStorage.getItem("username")
   const [isReady, setIsReady] = useState(false);
@@ -113,6 +116,10 @@ function handleReadyToggle() {
 useEffect(()=>{
   handleReadyToggle()
 },[])
+
+socket.on("join_room_c",(data)=>{
+  localStorage.setItem("Game_round",data.round)
+})
   return (
     <div className='body-c'>
       
@@ -138,16 +145,17 @@ useEffect(()=>{
     </div>
     <div>
     <input
-      type="text"
-      placeholder="Enter message"
-      value={message}
-      onChange={(e) => setmessage(e.target.value)}
-    />
-    <button onClick={message_submit}  className='send-button'>Send</button>
-  
+  className="chat-input"
+  type="text"
+  placeholder="Enter message"
+  value={message}
+  onChange={(e) => setmessage(e.target.value)}
+/>
+<button onClick={message_submit} className="send-button btn">Send</button>
+
 
     </div>
-    <button className="start-btn" onClick={Start_game}>Start Game 🎮</button>
+    <button className="start-btn btn" onClick={Start_game}>Start Game 🎮</button>
 
     <p className="message-status" style={{ color: color }}>{player_message}</p>
   </div>
@@ -189,5 +197,3 @@ useEffect(()=>{
 }
 
 export default Room
-
-

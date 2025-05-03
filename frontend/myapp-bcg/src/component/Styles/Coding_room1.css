@@ -1,0 +1,145 @@
+/* Layout and base */
+#coding-room-container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e2f;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .welcome-text {
+    font-size: 26px;
+    color: #00ffc8;
+  }
+  
+  .timer-text {
+    font-size: 20px;
+    color: #ffd700;
+  }
+  
+  .question-heading {
+    margin-top: 10px;
+    color: #00ffc8;
+  }
+  
+  .question-text {
+    margin-bottom: 20px;
+    color: #ffffff;
+  }
+  
+  .question-ids {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #999;
+  }
+  
+  /* Testcases */
+  .testcases ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .testcase-item {
+    background-color: #2d2d3a;
+    margin: 8px auto;
+    padding: 10px;
+    border-radius: 8px;
+    width: 90%;
+  }
+  
+  /* IDE section */
+  .ide {
+    margin-top: 20px;
+  }
+  
+  .code-input,
+  .input-field {
+    background-color: #2d2d3a;
+    color: #ffffff;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 90%;
+  }
+  
+  textarea::placeholder {
+    color: #888;
+  }
+  
+  /* Buttons */
+  .buttons {
+    margin-top: 10px;
+  }
+  
+  .btn-compile{
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-compile:hover {
+    background-color: #3b7dc4;
+  }
+  .btn-run{
+    background-color: #ea36a8;
+    color: white;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-run:hover {
+    background-color: #93007d;
+  }
+  /* Output section */
+  .output {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .output pre {
+    background-color: #1c1c28;
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 10px auto;
+    max-width: 800px;
+    white-space: pre-wrap;
+  }
+  
+  .compilation-status {
+    color: #00ff00;
+  }
+  
+  .output-result {
+    color: #00e676;
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+  }
+  
+  /* Test result section */
+  .test-result-section {
+    margin-top: 20px;
+  }
+  
+  .test-result {
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
